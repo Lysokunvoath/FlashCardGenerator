@@ -1,20 +1,13 @@
-import Link from 'next/link';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Features from './components/Features';
 
 export default function Home() {
   return (
-    <main style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: '100vh',
-    }}>
-      <Link href="/login" style={{
-        fontSize: '1.5rem',
-        color: 'blue',
-        textDecoration: 'underline',
-      }}>
-        Go to Login Page
-      </Link>
-    </main>
-  )
-};
+    <div>
+      <Navbar />
+      <Hero />
+      <Features />
+    </div>
+  );
+}
