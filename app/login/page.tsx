@@ -1,9 +1,18 @@
+"use client";
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
+import { useRouter } from 'next/navigation';
 
 const LoginPage: NextPage = () => {
+  const router = useRouter();
+
+  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault(); 
+    router.push('/dashboard');
+  };
+
   return (
     <div>
       <Navbar />
@@ -23,7 +32,7 @@ const LoginPage: NextPage = () => {
               <input type="password" id="password" className="w-full px-4 py-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500" />
             </div>
             <div className="flex justify-between items-center">
-              <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">Login</button>
+              <button type="button" onClick={handleLogin} className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">Login</button>
               <Link href="/signup" className="text-gray-400 hover:text-white">Sign up</Link>
             </div>
           </form>

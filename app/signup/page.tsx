@@ -1,8 +1,17 @@
+"use client";
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const SignupPage: NextPage = () => {
+  const router = useRouter();
+
+  const handleSignup = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    router.push('/dashboard');
+  };
+
   return (
     <div style={{
       display: 'flex',
@@ -91,7 +100,7 @@ const SignupPage: NextPage = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-            <button type="submit" style={{
+            <button type="button" onClick={handleSignup} style={{
               backgroundColor: '#2b6cb0',
               color: 'white',
               padding: '0.5rem 1rem',
