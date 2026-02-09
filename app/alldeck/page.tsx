@@ -12,9 +12,11 @@ const Card = () => (
     <div className="w-full bg-gray-700 rounded-full h-2 mb-4">
       <div className="bg-blue-500 h-2 rounded-full" style={{ width: "50%" }}></div>
     </div>
-    <button className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white font-medium">
-      Study now
-    </button>
+    <Link href="/viewdeck">
+      <button className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white font-medium">
+        Study now
+      </button>
+    </Link>
   </div>
 );
 
@@ -22,7 +24,6 @@ const AllDeckPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white p-8">
-      {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">All deck</h1>
         <Link href="/create-deck">

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const DeckCard: React.FC<{ title: string; cards: number }> = ({ title, cards }) => {
@@ -15,9 +16,11 @@ const DeckCard: React.FC<{ title: string; cards: number }> = ({ title, cards }) 
         <span>Progress</span>
         <span>{cards} cards</span>
       </div>
-      <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
-        Study now
-      </button>
+      <Link href="/flashcard">
+        <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+          Study now
+        </button>
+      </Link>
     </div>
   );
 };
