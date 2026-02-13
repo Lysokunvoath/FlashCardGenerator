@@ -1,13 +1,15 @@
 'use client';
 
-import Link from 'next/link';
+import Link from 'next/link'; // Added missing Link import
 import React from 'react';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '../context/AuthContext'; // Import useAuth
 
 interface SidebarProps { }
 
 const Sidebar: React.FC<SidebarProps> = () => {
   const pathname = usePathname();
+  const { signOut } = useAuth(); // Use the useAuth hook to get signOut
 
   const navItems = [
     { name: 'Dashboard', href: '/dashboard', icon: (
@@ -92,9 +94,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
       <div className="mt-auto">
         <button
           className="flex items-center w-full p-3 rounded-lg text-lg text-red-500 hover:bg-gray-800 transition-colors"
-          onClick={() => {
-            console.log('Logging out...');
-          }}
+          onClick={signOut} // Call signOut function
         >
           <span className="mr-3">
             <svg

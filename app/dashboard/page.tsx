@@ -1,5 +1,8 @@
+"use client";
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '../context/AuthContext';
 
 const DeckCard: React.FC<{ title: string; cards: number }> = ({ title, cards }) => {
   const progress = 70; 
@@ -26,6 +29,19 @@ const DeckCard: React.FC<{ title: string; cards: number }> = ({ title, cards }) 
 };
 
 const DashboardPage: React.FC = () => {
+  const router = useRouter();
+  const { user, loading } = useAuth();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
+
+  if (loading || !user) {
+    return <div className="flex justify-center items-center min-h-screen text-white">Loading...</div>;
+  }
+
   const progress = 70;
 
   return (
