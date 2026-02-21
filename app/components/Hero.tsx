@@ -1,4 +1,11 @@
+"use client";
+
+import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
+
 const Hero = () => {
+  const { user } = useAuth();
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-center p-8 text-center md:text-left">
       <div className="flex-1 md:mr-8">
@@ -7,9 +14,11 @@ const Hero = () => {
           Effortlessly create, manage and study flash card online. Tailor your
           learning your experience to master any subject.
         </p>
-        <button className="mt-8 px-8 py-3 text-lg text-white bg-blue-600 rounded-full hover:bg-blue-700">
-          Get started
-        </button>
+        <Link href={user ? "/dashboard" : "/signup"}>
+          <button className="mt-8 px-8 py-3 text-lg text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors">
+            Get started
+          </button>
+        </Link>
       </div>
       <div className="flex-1 mt-8 md:mt-0">
         <div className="relative w-full max-w-md mx-auto">

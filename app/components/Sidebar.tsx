@@ -5,9 +5,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '../context/AuthContext'; // Import useAuth
 
-interface SidebarProps { }
-
-const Sidebar: React.FC<SidebarProps> = () => {
+const Sidebar: React.FC = () => {
   const pathname = usePathname();
   const { signOut } = useAuth(); // Use the useAuth hook to get signOut
 

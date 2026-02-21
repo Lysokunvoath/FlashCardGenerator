@@ -29,8 +29,9 @@ const LoginPage: NextPage = () => {
     
     try {
       await signInWithEmailAndPassword(email, password);
-    } catch (err: any) {
-      setError(err.message || 'Failed to sign in');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to sign in';
+      setError(errorMessage);
       setIsSubmitting(false);
     }
   };
